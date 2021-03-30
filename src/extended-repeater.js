@@ -1,9 +1,10 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, { repeatTimes = 1, separator = "+", addition = "", additionRepeatTimes = 1, additionSeparator = "|" }) {
-  if (str != null) {
-    str = str.toString();
-}
+
+  if (str === null) str = 'null';
+  if (addition === null) addition = 'null';
+  
 let result= "";
 
 if (addition == undefined){
@@ -21,7 +22,8 @@ if (addition == undefined){
 let additionStr1= "";
 
    if (addition !== undefined || addition !== null) {
-   let additionStr = [];
+
+    additionStr = [];
                 addition = addition.toString();
              
   for (i = 0; i < additionRepeatTimes; i++) {
